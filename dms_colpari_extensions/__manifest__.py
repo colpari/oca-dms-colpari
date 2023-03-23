@@ -9,11 +9,12 @@
     "license": "LGPL-3",
     "website": "https://github.com/colpari/oca-dms-colpari",
     "author": "colpari GmbH",
-    "depends": [ "dms" ],
+    "depends": [ "base", "dms" ],
     "data": [
-        #"actions/file.xml",
+        "actions/res.partner.xml",
         "views/dms_file.xml",
         "views/directory.xml",
+        "views/changeForm_res.partner.xml"
     ],
     "application": False,
 }

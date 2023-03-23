@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<odoo>
+  <data>
+    <record id="action_show_directories" model="ir.actions.act_window">
+        <field name="name">Directories</field>
+        <field name="res_model">dms.directory</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <!-- <field name="domain">[("partner_id", "=", active_id)]</field> -->
+        <field name="context">{ 'default_partner_id': active_id }</field>
+        <field name="help" type="html">
+            <p>Deine Mama hat mich gern</p>
+        </field>
+    </record>
+  </data>
+</odoo>
