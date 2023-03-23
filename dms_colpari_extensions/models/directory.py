@@ -9,7 +9,18 @@ _logger = logging.getLogger(__name__)
 class colpariDmsDirectory(models.Model):
     _inherit = "dms.directory"
 
-    partner_id = fields.Many2one('res.partner', compute='_computePartnerId', inverse='_digestPartnerId', store='True', readonly=False)
+    partner_id = fields.Many2one(
+        'res.partner',
+        string       = "Partner/Client",
+        compute      = '_computePartnerId',
+        compute_sudo = True,
+        inverse      = '_digestPartnerId',
+        store        = True,
+        readonly     = False,
+        # would be nice but requires a dependency to colpari_services
+        #domain       = "['|', ('is_colpari_client', '=', True), ('is_colpari_partner', '=', True)]"
+    )
+
     @api.depends('parent_id')
     def _computePartnerId(self):
         for record in self:
